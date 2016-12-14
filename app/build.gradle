@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
+
+    defaultConfig {
+        applicationId "com.azzie.memories"
+        minSdkVersion 14
+        targetSdkVersion 23
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = file("$project.buildDir/apk/Memories.apk")
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile 'com.borax12.materialdaterangepicker:library:1.6'
+    compile 'com.android.support:cardview-v7:23.4.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.github.jd-alexander:LikeButton:+'
+    compile 'com.android.support:support-vector-drawable:23.4.0'
+    compile 'com.github.wooplr:Spotlight:1.2.2'
+    compile 'com.google.android.gms:play-services-analytics:9.2.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+}
