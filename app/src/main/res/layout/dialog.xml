@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
@@ -10,13 +11,12 @@
     android:paddingTop="70dp">
 
 
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
+        android:background="@color/white"
+        android:minHeight="56dp"
         android:popupTheme="@style/actionbar"
         android:theme="@style/actionbar"
         android:titleTextColor="@color/white"
@@ -25,10 +25,10 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="56dp"
             android:gravity="center_vertical"
-            android:text="Memories"
-            android:textColor="@color/white"
+            android:text="MessagiTory"
+            android:textColor="@color/primary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -38,15 +38,28 @@
             android:gravity="end"
             android:orientation="horizontal"
             android:padding="10dp">
-
+            <ImageButton
+                android:layout_marginRight="10dp"
+                android:id="@+id/addMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/ic_note_add_white_24dp"
+                android:tint="@color/primary" />
             <ImageButton
                 android:id="@+id/add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/primary"
-                android:src="@drawable/ic_add_white_24dp" />
+                android:background="@color/white"
+                android:src="@drawable/ic_add_white_24dp"
+                android:tint="@color/primary" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/primary" />
 
     <ListView
         android:id="@+id/category"

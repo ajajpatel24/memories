@@ -13,11 +13,11 @@
 
     <bool name="ga_reportUncaughtExceptions">true</bool>
 
-    <screenName name="com.azzie.memories.Main">Main</screenName>
-    <screenName name="com.azzie.memories.MessagesActivity">Messages</screenName>
-    <screenName name="com.azzie.memories.Settings">Settings</screenName>
-    <screenName name="com.azzie.memories.InstructionsActivity">Instructions</screenName>
-    <screenName name="com.azzie.memories.MyDialog">Message Dialog</screenName>
+    <screenName name="com.messagitory.Main">Main</screenName>
+    <screenName name="com.messagitory.MessagesActivity">Messages</screenName>
+    <screenName name="com.messagitory.Settings">Settings</screenName>
+    <screenName name="com.messagitory.InstructionsActivity">Instructions</screenName>
+    <screenName name="com.messagitory.MyDialog">Message Dialog</screenName>
 
 
     <!--

@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.azzie.memories.MessagesActivity">
+    tools:context=".MessagesActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
+        android:background="@color/primary"
+        android:minHeight="56dp"
         android:popupTheme="@style/actionbar"
         android:theme="@style/actionbar"
         android:titleTextColor="@color/white"
@@ -22,10 +22,10 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="56dp"
             android:layout_gravity="left"
             android:gravity="center_vertical"
-            android:text="Memories"
+            android:text="MessagiTory"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -35,14 +35,14 @@
         android:id="@+id/messages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@null"
         android:layout_marginTop="10dp"
+        android:divider="@null"
         android:visibility="gone"></ListView>
 
     <LinearLayout
+        android:id="@+id/noMessages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/noMessages"
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:orientation="vertical">
@@ -50,14 +50,14 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@mipmap/memory" />
+            android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No Messages"
             android:layout_marginTop="10dp"
             android:gravity="center"
+            android:text="No Messages"
             android:textSize="20dp"
             android:textStyle="bold" />
     </LinearLayout>

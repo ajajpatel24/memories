@@ -21,7 +21,7 @@
             android:id="@+id/info"
             android:checked="false"
             android:icon="@drawable/ic_info_white_24dp"
-            android:title="How to use?" />
+            android:title="How to use ?" />
         <item
             android:id="@+id/share"
             android:checked="false"

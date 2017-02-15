@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Memories</string>
+    <string name="app_name">MessagiTory</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->
@@ -74,13 +74,21 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-
+    <string name="gifuri">asset://splash.gif</string>
     <string name="instruction">\n 1. Just copy any content you want to save.\n\n
 2. Click on the bubble that is swimming on your screen.\n\n
-3. It will open the dialog asking for selecting the category in which you want to save your content.\n\n
+3. It will open the dialog asking for selecting the category in which you want to save your Message.\n\n
 4. Select the category and you are free to go.</string>
 
     <string name="instructionformessages">\n 1. Open application.\n\n
 2. Select the category from the list of categories.\n\n
-3. It will display all the messages you have stored in this category.</string>
+3. It will display all the messages saved in that category.</string>
+
+    <string name="instructionforservice">\n 1. Give Draw over other apps permission from settings, if not given already.\n\n 2. Open application.\n\n
+3. Select the setting from drawer menu.\n\n
+4. Enable or disable the service option.</string>
+
+    <string name="instructionforbackup">\n 1. Open application.\n\n
+2. Select the setting from drawer menu.\n\n
+3. Click on the Backup button to take backup of Messages.</string>
 </resources>

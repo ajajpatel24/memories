@@ -9,15 +9,15 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
+        android:background="@color/primary"
+        android:minHeight="56dp"
         android:titleTextColor="@color/white"
         app:elevation="0dp">
 
         <TextView
             android:id="@+id/title1"
             android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="56dp"
             android:layout_gravity="center"
             android:gravity="center_vertical"
             android:text="Add Message"
@@ -31,6 +31,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@color/primary_light"
-        android:dividerHeight="1dp"
-         />
+        android:dividerHeight="1dp" />
 </LinearLayout>

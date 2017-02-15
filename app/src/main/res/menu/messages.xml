@@ -27,6 +27,11 @@
         android:title="Filter"
         hmk:showAsAction="always" />
     <item
+        android:id="@+id/paste"
+        android:icon="@drawable/ic_content_paste_white_24dp"
+        android:title="Paste Message"
+        hmk:showAsAction="always" />
+    <item
         android:id="@+id/add"
         android:icon="@drawable/ic_add_white_24dp"
         android:title="Add New Message"

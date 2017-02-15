@@ -4,18 +4,24 @@
     android:id="@+id/activity_category_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#70b0b0b0"
+    android:background="#70bfd7ec"
     tools:context=".Main">
 
-    <ListView
-        android:id="@+id/gridViewMain"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@null"
-        android:paddingBottom="2dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
 
+        <ListView
+            android:id="@+id/gridViewMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:paddingBottom="2dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp" />
 
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>

@@ -2,26 +2,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_toolbar" />
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="56dp"
+        android:popupTheme="@style/actionbar"
+        android:theme="@style/actionbar"
+        android:titleTextColor="@color/white"
+        app:elevation="0dp">
 
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="left"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="Add Message"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/primary" />
 
     <EditText
         android:id="@+id/message"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:gravity="top"
         android:hint="Type text here...."
         android:lines="5" />
 
     <Spinner
         android:id="@+id/category"
+        android:layout_marginTop="5dp"
         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:paddingBottom="0dp"
         android:visibility="gone" />
 
@@ -29,29 +60,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
         android:weightSum="2">
 
         <Button
             android:id="@+id/add"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="@color/primary"
+            android:background="@color/white"
             android:text="Save"
-            android:textColor="@color/white" />
+            android:textColor="@color/primary" />
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="@color/primary"
+            android:background="@color/white"
             android:text="Cancel"
-            android:textColor="@color/white" />
+            android:textColor="@color/primary" />
     </LinearLayout>
 </LinearLayout>
