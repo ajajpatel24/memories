@@ -15,6 +15,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -78,27 +81,34 @@ public class TimeLineAdapter extends BaseAdapter {
         View vi = convertView;
         ViewHolder holder;
         if (convertView == null) {
-
-            /****** Inflate tabitem.xml file for each row ( Defined below ) *******/
-            vi = inflater.inflate(R.layout.layout_public_message_item, null);
-
-            /****** View Holder Object to contain tabitem.xml file elements ******/
-            holder = new ViewHolder();
-            holder.message = (TextView) vi.findViewById(R.id.message);
-            holder.likes = (TextView) vi.findViewById(R.id.nooflikes);
-            holder.date = (TextView) vi.findViewById(R.id.date);
-            holder.linearLayout = (CardView) vi.findViewById(R.id.cardview);
-            holder.copy = (ImageButton) vi.findViewById(R.id.copy);
-            holder.share = (ImageButton) vi.findViewById(R.id.share);
+            if (messages.get(position).getViewType() == 1) {
+                vi = inflater.inflate(R.layout.layout_ad_item, null);
+                holder = new ViewHolder();
+                holder.mAdView = (AdView) vi.findViewById(R.id.adView);
+                AdRequest adRequest = new AdRequest.Builder()
+                        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                        // Check the LogCat to get your test device ID
+                        .addTestDevice("09B069E88D1FFACB3CE80AA9F9C89C63")
+                        .build();
+                holder.mAdView.loadAd(adRequest);
+                vi.setTag(holder);
+            } else {
+                vi = inflater.inflate(R.layout.layout_public_message_item, null);
+                holder = new ViewHolder();
+                holder.message = (TextView) vi.findViewById(R.id.message);
+                holder.likes = (TextView) vi.findViewById(R.id.nooflikes);
+                holder.date = (TextView) vi.findViewById(R.id.date);
+                holder.linearLayout = (CardView) vi.findViewById(R.id.cardview);
+                holder.copy = (ImageButton) vi.findViewById(R.id.copy);
+                holder.share = (ImageButton) vi.findViewById(R.id.share);
 //            holder.report = (ImageButton) vi.findViewById(R.id.report);
-            holder.favorite = (ImageButton) vi.findViewById(R.id.favorite);
-            /************  Set holder with LayoutInflater ************/
-            vi.setTag(holder);
+                holder.favorite = (ImageButton) vi.findViewById(R.id.favorite);
+                vi.setTag(holder);
+                loadData(holder, position);
+            }
         } else {
             holder = (ViewHolder) vi.getTag();
         }
-        loadData(holder, position);
-
         return vi;
 
     }
@@ -173,5 +183,6 @@ public class TimeLineAdapter extends BaseAdapter {
         public CardView linearLayout;
         public ImageButton copy, share;
         public ImageButton favorite;//, report;
+        public AdView mAdView;
     }
 }

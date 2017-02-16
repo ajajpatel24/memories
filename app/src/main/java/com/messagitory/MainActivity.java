@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements ClickCallback {
         noMessages = (LinearLayout) findViewById(R.id.noMessages);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         messagesList = new ArrayList<>();
-        getMessages();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -162,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements ClickCallback {
     @Override
     protected void onResume() {
         super.onResume();
+        getMessages();
         noofMessages();
     }
 
@@ -214,10 +214,26 @@ public class MainActivity extends AppCompatActivity implements ClickCallback {
                     if (messagesList.size() == 0) {
                         noMessages.setVisibility(View.VISIBLE);
                         messages.setVisibility(View.GONE);
+                        swipeRefreshLayout.setVisibility(View.GONE);
                     } else {
                         noMessages.setVisibility(View.GONE);
                         messages.setVisibility(View.VISIBLE);
-                        adapter = new TimeLineAdapter(MainActivity.this, messagesList);
+                        swipeRefreshLayout.setVisibility(View.VISIBLE);
+                        ArrayList<MessageReponse> newMessages = new ArrayList<MessageReponse>();
+                        newMessages.addAll(messagesList);
+                        if (messagesList.size() > 5) {
+                            for (int i = 0; i < messagesList.size(); i++) {
+                                if ((i % 5) == 0) {
+                                    messagesList.get(i).setViewType(1);
+                                    newMessages.add(i + 1, messagesList.get(i));
+                                }
+                            }
+                        } else {
+                            MessageReponse messageReponse = new MessageReponse();
+                            messageReponse.setViewType(1);
+                            newMessages.add(0,messageReponse);
+                        }
+                        adapter = new TimeLineAdapter(MainActivity.this, newMessages);
                         messages.setAdapter(adapter);
                     }
                 } catch (Exception e) {
@@ -230,10 +246,11 @@ public class MainActivity extends AppCompatActivity implements ClickCallback {
                 mDialog.dismiss();
                 if (swipeRefreshLayout.isRefreshing())
                     swipeRefreshLayout.setRefreshing(false);
+                noMessages.setVisibility(View.VISIBLE);
+                messages.setVisibility(View.GONE);
+                swipeRefreshLayout.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "No internet connection.", Toast.LENGTH_LONG).show();
                 t.printStackTrace();
-                if (swipeRefreshLayout.isRefreshing())
-                    swipeRefreshLayout.setRefreshing(false);
             }
         });
     }

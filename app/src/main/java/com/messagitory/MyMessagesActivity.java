@@ -78,7 +78,6 @@ public class MyMessagesActivity extends AppCompatActivity implements ClickCallba
         noMessages = (LinearLayout) findViewById(R.id.noMessages);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         messagesList = new ArrayList<>();
-        getMessages();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -160,6 +159,7 @@ public class MyMessagesActivity extends AppCompatActivity implements ClickCallba
     protected void onResume() {
         super.onResume();
 //        noofMessages();
+        getMessages();
     }
 
     @Override
@@ -211,9 +211,11 @@ public class MyMessagesActivity extends AppCompatActivity implements ClickCallba
                     if (messagesList.size() == 0) {
                         noMessages.setVisibility(View.VISIBLE);
                         messages.setVisibility(View.GONE);
+                        swipeRefreshLayout.setVisibility(View.GONE);
                     } else {
                         noMessages.setVisibility(View.GONE);
                         messages.setVisibility(View.VISIBLE);
+                        swipeRefreshLayout.setVisibility(View.VISIBLE);
                         adapter = new TimeLineAdapter(MyMessagesActivity.this, messagesList);
                         messages.setAdapter(adapter);
                     }
@@ -227,10 +229,11 @@ public class MyMessagesActivity extends AppCompatActivity implements ClickCallba
                 mDialog.dismiss();
                 if (swipeRefreshLayout.isRefreshing())
                     swipeRefreshLayout.setRefreshing(false);
+                noMessages.setVisibility(View.VISIBLE);
+                messages.setVisibility(View.GONE);
+                swipeRefreshLayout.setVisibility(View.GONE);
                 Toast.makeText(MyMessagesActivity.this, "No internet connection.", Toast.LENGTH_LONG).show();
                 t.printStackTrace();
-                if (swipeRefreshLayout.isRefreshing())
-                    swipeRefreshLayout.setRefreshing(false);
             }
         });
     }

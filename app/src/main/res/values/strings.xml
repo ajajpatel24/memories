@@ -91,4 +91,6 @@
     <string name="instructionforbackup">\n 1. Open application.\n\n
 2. Select the setting from drawer menu.\n\n
 3. Click on the Backup button to take backup of Messages.</string>
+
+    <string name="adunitid">ca-app-pub-7332815367154314/8083551384</string>
 </resources>

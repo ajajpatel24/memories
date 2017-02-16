@@ -11,6 +11,8 @@ public class MessageReponse implements Serializable {
 
     private String id;
 
+    private int viewType;
+
     private String reports;
 
     private String likes;
@@ -96,6 +98,14 @@ public class MessageReponse implements Serializable {
 
     public void setIs_cancelled(String is_cancelled) {
         this.is_cancelled = is_cancelled;
+    }
+
+    public int getViewType() {
+        return viewType;
+    }
+
+    public void setViewType(int viewType) {
+        this.viewType = viewType;
     }
 
     @Override
